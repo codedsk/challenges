@@ -1,0 +1,11 @@
+White
+White
+White
+Green
+Ambiguous
+Green
+Black
+White
+Red
+Green
+Blue

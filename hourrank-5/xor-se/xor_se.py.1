@@ -1,0 +1,55 @@
+# https://www.hackerrank.com/contests/hourrank-5/challenges/xor-se
+
+def nextval(last,index):
+    """return the next value in the sequence
+    """
+    return last ^ index
+
+
+def xor_sum(L,R):
+    """return the xor sum of the elements in the sequence from L to R
+    """
+    print "L = %i, R = %i" % (L,R)
+
+    # find the index of the sequence where the last known value occurred
+    idx4 = L - (L%4)
+    print "last known = %i" % (idx4)
+
+    # the value of sequence element at idx4 is idx4
+    v = idx4
+
+    # calculate the value of sequence elements leading upto L
+    if idx4 < L:
+        for x in xrange(idx4+1,L):
+            v = nextval(v,x)
+    elif idx4 == L:
+        v = 0
+
+    print "v = ",v
+
+    # calculate the values of sequence elements from index L to R inclusive
+    # update our xor sum along the way
+    s = 0
+    allv = []
+    for x in xrange(L,R+1):
+        v = nextval(v,x)
+        allv.append(v)
+        s = s ^ v
+    print "allv = ",allv
+
+    return s
+
+
+if __name__ == '__main__':
+    Q = int(raw_input().strip())
+
+    inputs = []
+
+    for a0 in xrange(Q):
+        L,R = raw_input().strip().split(' ')
+        inputs.append([long(L),long(R)])
+
+
+    for a in xrange(Q):
+        s = xor_sum(*inputs[a])
+        print s
