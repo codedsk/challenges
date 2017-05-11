@@ -1,0 +1,5 @@
+conversion of the code from http://floating-point-gui.de/errors/comparison/
+
+help from:
+1. https://stackoverflow.com/questions/3874627/floating-point-comparison-functions-for-c-sharp
+2. https://msdn.microsoft.com/en-us/library/s3f49ktz.aspx
